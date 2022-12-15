@@ -1,0 +1,32 @@
+<div class="card text-dark">
+    <div class="card-header">
+        Detalle cliente
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <ul class="list-group">
+                <li class="list-group">
+                    <div class="col-sm">
+                        <img class="img-thumbnail row" src="http://localhost:8087/api/clientes/img/{{cliente.imagen}}" style="width:300px">
+                    </div>
+                </li>
+                <li class="list-group">{{cliente.nombre}}</li>
+                <li class="list-group">{{cliente.apellido}}</li>
+                <li class="list-group">{{cliente.email}}</li>
+                <li class="list-group">{{cliente.telefono}}</li>
+                <li class="list-group">{{cliente.createAt|date:'dd/MM/yyyy'}}</li>
+            </ul>
+            <div class="list-group">
+                <div class="cistom-file">
+                    <input (change)="seleccionarImagen($event)" type="file" class="custom-file-input" id="inputImg">
+                    <label for="inputImg" class="custom-file-label">Buscar imagen</label>
+                </div>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" (click)="subirImagen()">Guardar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

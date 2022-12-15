@@ -1,0 +1,44 @@
+<form class="mt-5" style="margin:40px" #ClienteForm="ngForm">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" [(ngModel)]="cliente.nombre" class="form-control" name="nombre">
+    </div>
+    <div class="form-group">
+      <label for="apellidos">Apelidos</label>
+      <input
+        type="text"
+        [(ngModel)]="cliente.apellido"
+        class="form-control"
+        name="apellidos"
+      >
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input
+        type="text"
+        [(ngModel)]="cliente.email"
+        class="form-control"
+        name="email"
+      >
+    </div>
+    <div class="form-group">
+      <label for="telefono">Telefono</label>
+      <input
+        type="number"
+        [(ngModel)]="cliente.telefono"
+        class="form-control"
+        name="telefono"
+      >
+    </div>
+      <div class="form-group">
+        <label for="region">Region</label>
+        <div>
+          <select [compareWith]="compararRegion" class="form-select" name="region" [(ngModel)]="cliente.region">
+            <option [ngValue]="undefined">Elegir una region</option>
+            <option *ngFor="let regi of regiones" [ngValue]="regi">{{regi.nombre}}</option>
+          </select>
+        </div>
+      </div>
+    <button *ngIf="!cliente.id" type="submit" class="btn btn-primary mt-2" style="margin-right:10px" (click)="nuevoCliente()">Guardar</button>
+    <button *ngIf="cliente.id" type="submit" class="btn btn-primary mt-2" style="margin-right:10px" (click)="editarCliente()">Editar</button>
+  </form>

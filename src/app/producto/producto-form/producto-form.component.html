@@ -1,0 +1,8 @@
+<form class="mt-5" style="margin:40px" #productoForm="ngForm">
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" [(ngModel)]="producto.nombre" class="form-control" name="nombre">
+  </div>
+  <button *ngIf="!producto.id" type="submit" class="btn btn-primary mt-2" style="margin-right:10px" (click)="nuevoProducto()">Guardar</button>
+  <button *ngIf="producto.id" type="submit" class="btn btn-primary mt-2" style="margin-right:10px" (click)="editarProducto()">Editar</button>
+</form>
